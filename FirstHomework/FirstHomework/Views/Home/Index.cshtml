@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Products";
+   
+}
+
+@model HomeViewModels
+<h1>Products</h1>
+
+<ul>
+    @foreach (var item in Model.Products)
+    {
+        <li>    
+            @item
+        </li>
+    }
+</ul>
+
+
+

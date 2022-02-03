@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Categorie";
+}
+
+<h1>Categorie</h1>
+
+<ul>
+    @foreach (var item in Model.Categories)
+   {
+       <li>
+           @item
+       </li>
+   }
+</ul>
+
