@@ -1,0 +1,38 @@
+﻿@model List<BasketVM> 
+@{
+    ViewData["Title"] = "_BasketPartial";
+}
+@{
+    double total = 0;
+}
+
+  @foreach (var item in Model)
+   {
+       {
+           total+=item.Price*item.Count;
+       }
+     <tr>
+        <th scope="row"><img  style=" width:50px; height:50px" src="~/img/@item.Image" /></th>
+      <td>@item.Name</td>
+      <td id="Price">@item.Price</td>
+      <td id="Count">@item.Count</td>
+      <td id="TotalPrice">@(item.Price*item.Count)</td>
+      <td> 
+          <a @*asp-controller="home" asp-action="Delete" asp-route-id="@item.Id"*@ class="btn btn-primary Remove-Basket "  data-id="@item.Id">delete</a>
+          <a @*asp-controller="home" asp-action="AddCount" asp-route-id="@item.Id"*@ class="btn btn-primary  Add-Count-Basket" data-id="@item.Id">+</a>
+          <a @*asp-controller="home" asp-action="DeleteCount" asp-route-id="@item.Id"*@  class="btn btn-primary Remove-Count-Basket"  data-id="@item.Id">-</a>
+      </td>
+    </tr>
+   }
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total: <span id="Totalamount">@total</span>    </td>
+</tr>
+
+      
+      
