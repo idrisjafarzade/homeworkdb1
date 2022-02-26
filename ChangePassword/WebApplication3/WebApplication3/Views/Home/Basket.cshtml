@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Basket";
+}
+@model List<BasketVM> 
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Count</th>
+            <th scope="col">Total</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="basket">
+            <partial name="_BasketPartial" model="@Model" />
+        </tbody>
+    </table>
+</div>
