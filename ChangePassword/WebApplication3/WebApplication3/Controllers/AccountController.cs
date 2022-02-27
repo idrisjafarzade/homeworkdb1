@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -82,7 +83,7 @@ namespace WebApplication3.Controllers
                 ModelState.AddModelError("UserName", "bu adda user yoxdur");
                 return View();
             }
-            var result = await _signInManager.PasswordSignInAsync(exsitUser, loginVM.Password, false, true);
+            var result = await _signInManager.PasswordSignInAsync(exsitUser, loginVM.Password, loginVM.RememberMe, true);
             if (!result.Succeeded)
             {
                 ModelState.AddModelError("", "sehvliy var");
@@ -112,6 +113,7 @@ namespace WebApplication3.Controllers
             }
             string token=await _userManager.GenerateEmailConfirmationTokenAsync(existEmail);
             string link = Url.Action(nameof(ChangePassword), "Account", new { email = resetPassword.Email, token }, Request.Scheme, Request.Host.ToString());
+            TempData["link1"] = link;
             MailMessage msg=new MailMessage();
             msg.From = new MailAddress("codep320@gmail.com", "idrisAlisimran");
             msg.To.Add(resetPassword.Email);
@@ -142,7 +144,15 @@ namespace WebApplication3.Controllers
 
             if (!ModelState.IsValid)
                 return View();
-
+            var existEmail = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (existEmail == null)
+            {
+                ModelState.AddModelError("Email", "bele Email yoxdu");
+                return View();
+            }
+            string token2 = await _userManager.GenerateEmailConfirmationTokenAsync(existEmail);
+            string link2 = Url.Action(nameof(ChangePassword), "Account", new { email = resetPassword.Email, token2 }, Request.Scheme, Request.Host.ToString());
+            TempData["link2"]=link2;
             var existUser = await _userManager.FindByEmailAsync(resetPassword.Email);
             if(existUser == null)
             {
@@ -155,6 +165,28 @@ namespace WebApplication3.Controllers
             await _signInManager.RefreshSignInAsync(existUser);
             return RedirectToAction("index", "home");
         }
-        
+        public IActionResult ChangeOldPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeOldPassword(ChangeOldPassword changeOldPassword)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+             var user=await _userManager.GetUserAsync(User);
+
+            var oldPassword = await _userManager.ChangePasswordAsync(user, changeOldPassword.OldPassword, changeOldPassword.NewPassword);
+            if (!oldPassword.Succeeded)
+            {
+                ModelState.AddModelError("OldPassword", "sehvliy var");
+                return View();
+            }
+            await _signInManager.RefreshSignInAsync(user);
+            return RedirectToAction(nameof(Login));
+        }
     }
 }

@@ -180,3 +180,4 @@ C:\Users\PavilioN HP\Documents\Visual Code Repo\WebApplication3\WebApplication3\
 C:\Users\PavilioN HP\Documents\Visual Code Repo\WebApplication3\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\PavilioN HP\Documents\Visual Code Repo\WebApplication3\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\Reset.cshtml.g.cs
 C:\Users\PavilioN HP\Documents\Visual Code Repo\WebApplication3\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
+C:\Users\PavilioN HP\Documents\Visual Code Repo\WebApplication3\WebApplication3\obj\Debug\net5.0\Razor\Views\Account\ChangeOldPassword.cshtml.g.cs
