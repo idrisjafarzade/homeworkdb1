@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApplication3",
+    "\\WebApplication3\\Areas",
+    "\\WebApplication3\\Areas\\AdminPanel",
+    "\\WebApplication3\\Areas\\AdminPanel\\Controllers",
+    "\\WebApplication3\\Areas\\AdminPanel\\Views",
+    "\\WebApplication3\\Areas\\AdminPanel\\Views\\Blog",
+    "\\WebApplication3\\Areas\\AdminPanel\\Views\\Expert",
+    "\\WebApplication3\\Areas\\AdminPanel\\Views\\Product",
+    "\\WebApplication3\\Areas\\AdminPanel\\Views\\User"
+  ],
+  "SelectedNode": "\\WebApplication3\\Areas\\AdminPanel\\Controllers\\UserController.cs",
+  "PreviewInSolutionExplorer": false
+}

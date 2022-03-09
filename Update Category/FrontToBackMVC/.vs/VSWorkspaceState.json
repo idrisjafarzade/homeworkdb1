@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\FrontToBackMVC",
+    "\\FrontToBackMVC\\Areas",
+    "\\FrontToBackMVC\\Areas\\AdminPanel",
+    "\\FrontToBackMVC\\Areas\\AdminPanel\\Views",
+    "\\FrontToBackMVC\\Areas\\AdminPanel\\Views\\Category"
+  ],
+  "SelectedNode": "\\FrontToBackMVC\\Areas\\AdminPanel\\Views\\Category\\Update.cshtml",
+  "PreviewInSolutionExplorer": false
+}
